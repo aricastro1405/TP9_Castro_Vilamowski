@@ -1,0 +1,9 @@
+<h1>Log in</h1>
+<form method = "get" action = '@Url.Action("Login","Account")'>
+    <p>USERNAME: <input type= "text" name = "UN" required><br>
+    PASSWORD: <input type= "text" name = "PW" required><br>
+    </p>
+<a href = '@Url.Action("OlvideMiContrasenia","Account")'>Olvidé mi contraseña</a>
+<input type = "submit" value = "LOG IN">
+<p>¿Sos nuevo?</p><a href = '@Url.Action("Registro","Account")'>Registrate</a>
+</form>

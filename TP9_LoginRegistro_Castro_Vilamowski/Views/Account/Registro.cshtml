@@ -1,0 +1,13 @@
+<h1>Create a new account</h1>
+<form method = "get" action = '@Url.Action("Registro","Account")'>
+    <input type="hidden" name="idusuario" value="@ViewBag.idPartido">
+    <p>USERNAME: <input type= "text" name = "UN" required><br>
+    PASSWORD: <input type= "text" name = "PW" required><br>
+    NAME: <input type= "text" name = "Nombre" required><br>
+    EMAIL: <input type= "text" name = "Email" required><br>
+    PHONE NUMBER: <input type= "text" name = "Telefono" required><br>
+    </p>
+<a href = '@Url.Action("OlvideMiContrasenia","Account")'>Olvidé mi contraseña</a>
+<input type = "submit" value = "LOG IN">
+<p>¿Sos nuevo?</p><a href = '@Url.Action("Registro","Account")'>Registrate</a>
+</form>
