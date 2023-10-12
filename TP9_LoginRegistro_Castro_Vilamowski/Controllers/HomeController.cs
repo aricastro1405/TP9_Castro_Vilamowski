@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace TPBase.Controllers;
+namespace TP9_LoginRegistro_Castro_Vilamowski.Controllers;
 
 public class HomeController : Controller
 {

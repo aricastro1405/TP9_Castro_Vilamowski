@@ -15,22 +15,16 @@ public class HomeController : Controller
     }
      [HttpPost]public IActionResult Registro(Usuario usuario)
     {
-        ViewBag.uSuario=BD.BuscarUser(username);
+        ViewBag.uSuario=BD.BuscarUser(usuario.UserName);
         if(ViewBag.uSuario==null){
            BD.RegistroUser(usuario);
             return View("Registro");
         }
-        ViewBag.IdUsuario=idusuario;
         return View("Bienvenida");
     }
     public IActionResult OlvideMiContrasenia(string username, string contranUeva)
     {
-        
         BD.ActualizarContrasenia(contranUeva,username);
-        return View("OlvideMiContrasenia");
-    }
-    public IActionResult Bienvenida()
-    {
         return View("Bienvenida");
     }
 }

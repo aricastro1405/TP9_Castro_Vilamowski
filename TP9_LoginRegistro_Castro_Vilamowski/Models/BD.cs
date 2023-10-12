@@ -1,10 +1,10 @@
 using System.Data.SqlClient;
 using Dapper;
 public static class BD{
-    private static string _connectionString=@"Server=localhost; Database=TPElecciones_Castro_Vilamowski; Trusted_Connection=True;";
+    private static string _connectionString=@"Server=localhost; Database=BD_Login+Registro; Trusted_Connection=True;";
     public static Usuario LoginUser(string UN, string PW){
         Usuario MiUsuario = null;
-        string SQL = "SELECT UserName, Contrasenia FROM Usuario WHERE UserName = @pUN AND Contrasenia = @pPW";
+        string SQL = "SELECT * FROM Usuario WHERE UserName = @pUN AND Contrasenia = @pPW";
         using(SqlConnection db = new SqlConnection(_connectionString)){
             MiUsuario=db.QueryFirstOrDefault<Usuario>(SQL, new {pUN = UN, pPW = PW});
         }
@@ -12,7 +12,7 @@ public static class BD{
     }
      public static Usuario BuscarUser(string UN){
         Usuario Usuario = null;
-        string SQL = "SELECT UserName, Contrasenia FROM Usuario WHERE UserName = @pUN";
+        string SQL = "SELECT * FROM Usuario WHERE UserName = @pUN";
         using(SqlConnection db = new SqlConnection(_connectionString)){
             Usuario=db.QueryFirstOrDefault<Usuario>(SQL, new {pUN = UN});
         }
@@ -28,7 +28,7 @@ public static class BD{
     public static void ActualizarContrasenia(string contraNueva, string UsernAme){
         string SQL = "UPDATE Usuario SET Contrasenia = @pContraNueva WHERE UserName = @pUsernAme";
         using(SqlConnection db = new SqlConnection(_connectionString)){
-            db.Execute(SQL, new {pContraNueva = contraNueva, pUsernAme = UserName});
+            db.Execute(SQL, new {pContraNueva = contraNueva, pUsernAme = UsernAme});
         }
     }
 }
